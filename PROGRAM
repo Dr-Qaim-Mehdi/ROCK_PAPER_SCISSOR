@@ -1,0 +1,51 @@
+import numpy as np
+
+result = True
+comp = 0
+human = 0
+
+while result:
+  random = np.random.randint(1,10)
+
+  if random < int(10/3):
+    val = "R"
+  elif random >=int(10/3) and random < int(20/3):
+    val = "P"
+  else:
+    val = "S"
+
+  string = input("Enter your choice(R, P and S): ")
+
+  if string != "R": 
+    if string != "P": 
+      if string != "S":
+        result = False
+
+  print(f"Computer choice {val} and your choice {string}.")
+
+  if val == string:
+    print("it's a draw...")
+  elif val == "R":
+    if string == "P":
+      print("You won the game...")
+      human += 1
+    elif string == "S":
+      print("Computer won the game...")
+      comp += 1
+  elif val == "P":
+    if string == "S":
+      print("You won the game...")
+      human += 1
+    elif string == "R":
+      print("Computer won the game...")
+      comp += 1
+  elif val == "S":
+    if string == "R":
+      print("You won the game...")
+      human += 1
+    elif string == "P":
+      print("Computer won the game...")
+      comp += 1
+
+print("\n\n\nWe had a nice time...")
+print(f"Our score is as... COMPUTER: {comp} AND HUMAN: {human}")
